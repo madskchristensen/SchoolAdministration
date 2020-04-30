@@ -10,9 +10,9 @@ public class Student{
     public String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd") // needed for input field on html pages (in order to serve the right format)
     public Date enrollmentDate;
-    public String cpr;
+    public long cpr;
 
-    public Student(int id, String firstName, String lastName, Date enrollmentDate, String cpr) {
+    public Student(int id, String firstName, String lastName, Date enrollmentDate, long cpr) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -54,11 +54,11 @@ public class Student{
         this.enrollmentDate = enrollmentDate;
     }
 
-    public String getCpr() {
+    public long getCpr() {
         return cpr;
     }
 
-    public void setCpr(String cpr) {
+    public void setCpr(long cpr) {
         this.cpr = cpr;
     }
 

@@ -26,15 +26,16 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public Student read(int id) {
         Student studentToReturn = new Student();
         try {
-            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM students WHERE students_id=?");
+            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM students WHERE id = ?");
+            getSingleStudent.setInt(1,id);
             ResultSet rs = getSingleStudent.executeQuery();
             while(rs.next()){
                 studentToReturn = new Student();
-                studentToReturn.setCpr(String.valueOf(rs.getInt(1)));
+                studentToReturn.setId(rs.getInt(1));
                 studentToReturn.setFirstName(rs.getString(2));
                 studentToReturn.setLastName(rs.getString(3));
                 studentToReturn.setEnrollmentDate(rs.getDate(4));
-                studentToReturn.setCpr(rs.getString(5));
+                studentToReturn.setCpr(rs.getLong(5));
             }
         }
         catch(SQLException s){
@@ -55,7 +56,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 tempStudent.setFirstName(rs.getString(2));
                 tempStudent.setLastName(rs.getString(3));
                 tempStudent.setEnrollmentDate(rs.getDate(4));
-                tempStudent.setCpr(rs.getString(5));
+                tempStudent.setCpr(rs.getLong(5));
                 allStudents.add(tempStudent);
             }
         } catch (SQLException e) {
