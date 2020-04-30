@@ -21,6 +21,7 @@ public class StudentController {
 
     @GetMapping("/")
     public String index(Model model){
+        model.addAttribute("students", studentRepository.readAll());
         return "index";
     }
 
@@ -29,7 +30,12 @@ public class StudentController {
     //TODO Direct to detailed view of student
     @GetMapping("/student")
     @ResponseBody
-    public String getStudentByParameter(@RequestParam String id) {
-        return "Just a string in the body";
+    public String getStudentByParameter(@RequestParam int id) {
+        Student student = studentRepository.read(id);
+        return student.toString();
     }
+
+    // delete student method
+
+    // edit student method
 }

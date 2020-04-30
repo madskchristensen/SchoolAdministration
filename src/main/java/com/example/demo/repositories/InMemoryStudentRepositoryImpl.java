@@ -37,7 +37,7 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
 
     @Override
     public List<Student> readAll() {
-        return null;
+        return inMemoryDatabase;
     }
 
     @Override
