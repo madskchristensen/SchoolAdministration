@@ -31,7 +31,6 @@ nav a {
     text-align: right;
     color: #666666;
     font-style: italic;
-
 }
 
 /* table styles */
@@ -90,7 +89,7 @@ input {
 
 /* Green */
 .btn-details {
-    background-color: #555555;
+    background-color: #06BA00;
 }
 
 /* Black */
