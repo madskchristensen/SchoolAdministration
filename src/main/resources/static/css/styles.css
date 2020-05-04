@@ -51,11 +51,16 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+label {
+    margin-top: 20%;
+}
 
 input {
     display: block;
     width: 50%;
     padding: .5rem .75rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 1rem;
     line-height: 1.25;
     color: #495057;
@@ -89,7 +94,7 @@ input {
 
 /* Green */
 .btn-details {
-    background-color: #06BA00;
+    background-color: #4CAF50;
 }
 
 /* Black */

@@ -27,7 +27,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
             createSingleStudent.setString(1, student.getFirstName());
             createSingleStudent.setString(2, student.getLastName());
             createSingleStudent.setDate(3, java.sql.Date.valueOf(student.getEnrollmentDate()));
-            createSingleStudent.setLong(4, student.getCpr());
+            createSingleStudent.setString(4, student.getCpr());
             createSingleStudent.execute();
 
         } catch (SQLException e) {
@@ -50,7 +50,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 studentToReturn.setFirstName(rs.getString(2));
                 studentToReturn.setLastName(rs.getString(3));
                 studentToReturn.setEnrollmentDate(rs.getDate(4).toLocalDate());
-                studentToReturn.setCpr(rs.getLong(5));
+                studentToReturn.setCpr(rs.getString(5));
             }
         }
         catch(SQLException s){
@@ -71,7 +71,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 tempStudent.setFirstName(rs.getString(2));
                 tempStudent.setLastName(rs.getString(3));
                 tempStudent.setEnrollmentDate(rs.getDate(4).toLocalDate());
-                tempStudent.setCpr(rs.getLong(5));
+                tempStudent.setCpr(rs.getString(5));
                 allStudents.add(tempStudent);
             }
         } catch (SQLException e) {
@@ -87,7 +87,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
             ps.setString(1,student.getFirstName());
             ps.setString(2,student.getLastName());
             ps.setString(3,student.getEnrollmentDate().toString());
-            ps.setLong(4,student.getCpr());
+            ps.setString(4,student.getCpr());
             ps.setInt(5,student.getId());
             ps.execute();
         } catch (SQLException e) {

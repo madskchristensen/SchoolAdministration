@@ -11,9 +11,9 @@ public class Student{
     private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd") // needed for input field on html pages (in order to serve the right format)
     private LocalDate enrollmentDate;
-    private long cpr;
+    private String cpr;
 
-    public Student(int id, String firstName, String lastName, int enrollmentYear, int enrollmentMonth, int enrollmentDay, long cpr) {
+    public Student(int id, String firstName, String lastName, int enrollmentYear, int enrollmentMonth, int enrollmentDay, String cpr) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -59,11 +59,11 @@ public class Student{
         this.enrollmentDate = LocalDate.of(enrollmentYear, enrollmentMonth, enrollmentDay);
     }
 
-    public long getCpr() {
+    public String getCpr() {
         return cpr;
     }
 
-    public void setCpr(long cpr) {
+    public void setCpr(String cpr) {
         this.cpr = cpr;
     }
 

@@ -2,16 +2,10 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Student;
 import com.example.demo.repositories.IStudentRepository;
-import com.example.demo.repositories.InMemoryStudentRepositoryImpl;
 import com.example.demo.repositories.StudentRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.sql.Date;
-import java.time.LocalDate;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class StudentController{
@@ -47,16 +41,24 @@ public class StudentController{
     }
 
     @GetMapping("/students")
-    public String students(Model model) {
+    public String studentOverview(Model model) {
         model.addAttribute("students", studentRepository.readAll());
         return "students";
     }
 
     // create student method
-    @GetMapping("/createStudent")
-    public String createStudent(){
-        return "createStudent";
+    @GetMapping("/student/create")
+    public String createStudentShow(){
+        return "/student/create";
     }
+
+    @PostMapping("/student/createDo")
+    public String studentInput(@ModelAttribute Student student) {
+        studentRepository.create(student);
+
+        return "redirect:/students";
+    }
+
     // delete student method
 
     // edit student method
