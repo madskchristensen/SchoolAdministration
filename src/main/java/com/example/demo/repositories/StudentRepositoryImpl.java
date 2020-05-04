@@ -98,7 +98,15 @@ public class StudentRepositoryImpl implements IStudentRepository {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int idToDelete) {
+        try{
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE id=?");
+            ps.setInt(1,idToDelete);
+            ps.execute();
+        } catch (SQLException e) {
+            System.out.println("noget gik galt med delete");
+            e.printStackTrace();
+        }
         return false;
     }
 }

@@ -34,9 +34,9 @@
             <td th:text="${student.getEnrollmentDate()}"></td>
             <td th:text="${student.getCpr()}"></td>
             <td>
-                <a th:href="@{/student(id=${student.getId()})}"><button class="btn btn-details">Details</button></a>
+                <a th:href="@{/student(id=${student.id})}"><button class="btn btn-details">Details</button></a>
                 <a href="#"><button class="btn btn-ed">Edit</button></a>
-                <a href="#"><button class="btn btn-del">Delete</button></a></td>
+                <a href="/deleteStudent"><button class="btn btn-del">Delete</button></a></td>
         </tr>
     </table>
 </div>
