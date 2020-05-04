@@ -17,6 +17,7 @@
         <a href="/students">Students</a>
         <a href="/courses">Courses</a>
     </nav>
+    <br>
     <a href="/createStudent"><button class="btn btn-create">Create</button></a>
     <table>
         <tr>
@@ -32,7 +33,7 @@
             <td>
                 <a th:href="@{/student(id=${student.id})}"><button class="btn btn-details">Details</button></a>
                 <a href="#"><button class="btn btn-ed">Edit</button></a>
-                <a href="#"><button class="btn btn-del">Delete</button></a></td>
+                <a href="/deleteStudent"><button class="btn btn-del">Delete</button></a></td>
         </tr>
     </table>
 </div>
