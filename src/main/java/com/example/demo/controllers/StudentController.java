@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Date;
+
 @Controller
-public class StudentController {
+public class StudentController{
 
     private IStudentRepository studentRepository;
 
@@ -21,6 +23,9 @@ public class StudentController {
 
     @GetMapping("/")
     public String index(){
+        Student student = new Student(1,"hejehej","Lotte",new java.sql.Date(2020,12,17),1234567890);
+        studentRepository.update(student);
+        System.out.println(student.toString());
         return "index";
     }
 
@@ -46,6 +51,11 @@ public class StudentController {
         return "students";
     }
 
+    // create student method
+    @GetMapping("/createStudent")
+    public String createStudent(){
+        return "createStudent";
+    }
     // delete student method
 
     // edit student method

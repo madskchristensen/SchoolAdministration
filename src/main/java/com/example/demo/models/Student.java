@@ -2,15 +2,15 @@ package com.example.demo.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Student{
-    public int id;
-    public String firstName;
-    public String lastName;
+    private int id;
+    private String firstName;
+    private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd") // needed for input field on html pages (in order to serve the right format)
-    public Date enrollmentDate;
-    public long cpr;
+    private Date enrollmentDate;
+    private long cpr;
 
     public Student(int id, String firstName, String lastName, Date enrollmentDate, long cpr) {
         this.id = id;

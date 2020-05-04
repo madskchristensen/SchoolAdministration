@@ -17,7 +17,7 @@
         <a href="/students">Students</a>
         <a href="/courses">Courses</a>
     </nav>
-
+    <a href="/createStudent"><button class="btn btn-create">Create</button></a>
     <table>
         <tr>
             <th>First name</th>
@@ -25,7 +25,6 @@
             <th>Enrollment</th>
             <th>Edit</th>
         </tr>
-
         <tr th:each="student : ${students}">
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
