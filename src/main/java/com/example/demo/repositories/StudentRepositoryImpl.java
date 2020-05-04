@@ -19,7 +19,22 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
     @Override
     public boolean create(Student student) {
-        return false;
+        try {
+            PreparedStatement createSingleStudent = conn.prepareStatement("INSERT INTO students " +
+                    "(firstname, lastname, enrollmentDate, cpr)" +
+                    "VALUES(?, ?, ?, ?)");
+
+            createSingleStudent.setString(1, student.getFirstName());
+            createSingleStudent.setString(2, student.getLastName());
+            createSingleStudent.setDate(3, java.sql.Date.valueOf(student.getEnrollmentDate()));
+            createSingleStudent.setLong(4, student.getCpr());
+            createSingleStudent.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
     @Override
@@ -34,7 +49,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 studentToReturn.setId(rs.getInt(1));
                 studentToReturn.setFirstName(rs.getString(2));
                 studentToReturn.setLastName(rs.getString(3));
-                studentToReturn.setEnrollmentDate(rs.getDate(4));
+                studentToReturn.setEnrollmentDate(rs.getDate(4).toLocalDate());
                 studentToReturn.setCpr(rs.getLong(5));
             }
         }
@@ -55,7 +70,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 tempStudent.setId(rs.getInt(1));
                 tempStudent.setFirstName(rs.getString(2));
                 tempStudent.setLastName(rs.getString(3));
-                tempStudent.setEnrollmentDate(rs.getDate(4));
+                tempStudent.setEnrollmentDate(rs.getDate(4).toLocalDate());
                 tempStudent.setCpr(rs.getLong(5));
                 allStudents.add(tempStudent);
             }

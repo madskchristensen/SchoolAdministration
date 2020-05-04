@@ -3,20 +3,21 @@ package com.example.demo.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Student{
     private int id;
     private String firstName;
     private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd") // needed for input field on html pages (in order to serve the right format)
-    private Date enrollmentDate;
+    private LocalDate enrollmentDate;
     private long cpr;
 
-    public Student(int id, String firstName, String lastName, Date enrollmentDate, long cpr) {
+    public Student(int id, String firstName, String lastName, int enrollmentYear, int enrollmentMonth, int enrollmentDay, long cpr) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.enrollmentDate = enrollmentDate;
+        this.enrollmentDate = LocalDate.of(enrollmentYear, enrollmentMonth, enrollmentDay);
         this.cpr = cpr;
     }
 
@@ -46,12 +47,16 @@ public class Student{
         this.lastName = lastName;
     }
 
-    public Date getEnrollmentDate() {
+    public LocalDate getEnrollmentDate() {
         return enrollmentDate;
     }
 
-    public void setEnrollmentDate(Date enrollmentDate) {
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
+    }
+
+    public void setEnrollmentDate(int enrollmentYear, int enrollmentMonth, int enrollmentDay) {
+        this.enrollmentDate = LocalDate.of(enrollmentYear, enrollmentMonth, enrollmentDay);
     }
 
     public long getCpr() {

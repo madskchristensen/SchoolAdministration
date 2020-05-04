@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Controller
 public class StudentController{
@@ -23,9 +24,9 @@ public class StudentController{
 
     @GetMapping("/")
     public String index(){
-        Student student = new Student(1,"hejehej","Lotte",new java.sql.Date(2020,12,17),1234567890);
-        studentRepository.update(student);
-        System.out.println(student.toString());
+        // Student student = new Student(1,"hejehej","Lotte", 1533, 10, 10,1234567890);
+        // studentRepository.update(student);
+        // studentRepository.create(new Student(50,"dadadada","rqrqrq", 2010, 10, 10,1234567890));
         return "index";
     }
 
