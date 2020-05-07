@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Student</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/../css/styles.css">
+</head>
+<body>
+<!-- TODO: MENU -->
+<!-- TODO: Table of students -->
+<div class="container" >
+
+    <nav>
+        <a href="/">KEA</a>
+        <a href="/students">Students</a>
+        <a href="/courses">Courses</a>
+    </nav>
+    <h1><strong>Delete</strong></h1>
+    <!--placeholder action-->
+    <h2><strong>Are you sure you want to delete</strong></h2>
+    <p th:text="${student.getFirstName()}">firstName </p>
+    <p th:text="${student.getLastName()}">lastName</p>
+
+    <form th:action="@{/student/deleteDo}" method="post" th:object="${student}">
+        <!--Det her er lidt weird, men trods at vi har parset et objekt til siden, så gemmer thymeleaf kun de værdier, som skal bruges til ens HTML. Derfor hidden id field nedenfor-->
+        <!--Se https://stackoverflow.com/questions/43286396/spring-boot-post-request-method-not-having-all-object-values for forklaring-->
+        <input id="id" th:field="*{id}" type="hidden"/>
+
+        <button type=submit formaction="deleteDo" style="width:35%" class="btn btn-create">Yes</button>
+        <button type=submit formaction="deleteNo" style="width:35%" class="btn btn-del">No</button>
+    </form>
+</div>
+</body>
+</html>
