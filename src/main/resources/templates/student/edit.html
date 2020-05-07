@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/../css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Create student</h1>
+    <nav>
+        <a href="/static">KEA</a>
+        <a href="/students">Students</a>
+        <a href="/courses">Courses</a>
+    </nav>
+    <form action="/student/editDo" method="post">
+        <label for="firstName">Fornavn</label> <input id="firstName" name="firstName" th:value="${student.getFirstName()}" type="text"/>
+        <label for="lastName">Efternavn</label> <input id="lastName" name="lastName" th:value="${student.getLastName()}" type="text"/>
+        <label for="enrollmentDate">Indskrivelsesdato</label> <input id="enrollmentDate" name="enrollmentDate" th:value="${student.getEnrollmentDate()}" type="text"/>
+        <label for="cpr">CPR</label> <input id="cpr" name="cpr" th:value="${student.getCpr()}" type="text"/>
+        <input type="hidden" id="id" name="id" th:value="${student.getId()}"/>
+        <input name="submit" type="submit" value="Gem" class="btn btn-create">
+    </form>
+</div>
+</body>
+</html>

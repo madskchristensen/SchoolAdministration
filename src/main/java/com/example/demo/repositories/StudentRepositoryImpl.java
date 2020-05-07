@@ -90,6 +90,8 @@ public class StudentRepositoryImpl implements IStudentRepository {
             ps.setString(4,student.getCpr());
             ps.setInt(5,student.getId());
             ps.execute();
+
+            return true;
         } catch (SQLException e) {
             System.out.println("den er gal i update");
             e.printStackTrace();
@@ -103,6 +105,8 @@ public class StudentRepositoryImpl implements IStudentRepository {
             PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE id=?");
             ps.setInt(1,idToDelete);
             ps.execute();
+
+            return true;
         } catch (SQLException e) {
             System.out.println("noget gik galt med delete");
             e.printStackTrace();
