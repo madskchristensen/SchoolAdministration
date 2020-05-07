@@ -17,11 +17,11 @@
     </nav>
     <h1><strong>Details</strong></h1>
 
-    <p>ID: <span th:text="${student.getId()}">id </span></p>
-    <p>First Name: <span th:text="${student.getFirstName()}">firstName </span></p>
-    <p>Last Name: <span th:text="${student.getLastName()}">lastName</span></p>
-    <p>Enrollment Date: <span th:text="${student.getEnrollmentDate()}">enrollmentDate</span></p>
-    <p>CPR: <span th:text="${student.getCpr()}">cpr</span></p>
+    <label for="id">Fornavn</label> <input id="id" name="id" th:value="${student.getId()}" type="text" readonly/>
+    <label for="firstName">Fornavn</label> <input id="firstName" name="firstName" th:value="${student.getFirstName()}" type="text" readonly/>
+    <label for="lastName">Efternavn</label> <input id="lastName" name="lastName" th:value="${student.getLastName()}" type="text" readonly/>
+    <label for="enrollmentDate">Indskrivelsesdato</label> <input id="enrollmentDate" name="enrollmentDate" th:value="${student.getEnrollmentDate()}" type="text" readonly/>
+    <label for="cpr">CPR</label> <input id="cpr" name="cpr" th:value="${student.getCpr()}" type="text" readonly/>
 
     <a href="/students"><button class="btn btn-create">Back</button></a>
 
