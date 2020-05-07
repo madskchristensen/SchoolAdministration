@@ -19,8 +19,7 @@
     <h1><strong>Delete</strong></h1>
     <!--placeholder action-->
     <h2><strong>Are you sure you want to delete</strong></h2>
-    <p th:text="${student.getFirstName()}">firstName </p>
-    <p th:text="${student.getLastName()}">lastName</p>
+    <p><span th:text="${student.getFirstName()}">firstName</span> <span th:text="${student.getLastName()}">lastName</span> </p>
 
     <form th:action="@{/student/deleteDo}" method="post" th:object="${student}">
         <!--Det her er lidt weird, men trods at vi har parset et objekt til siden, så gemmer thymeleaf kun de værdier, som skal bruges til ens HTML. Derfor hidden id field nedenfor-->
