@@ -60,6 +60,25 @@ public class StudentController{
     }
 
     // delete student method
+    @GetMapping("/student/delete")
+    public String delete(@RequestParam int id, Model model){
+        Student student = studentRepository.read(id);
+        model.addAttribute("student", student);
+        return "/student/delete";
+    }
+
+    @PostMapping("/student/deleteDo")
+    public String deleteDo(@ModelAttribute Student student){
+        System.out.println(student + "has been deleted");
+        studentRepository.delete(student.getId());
+        return "redirect:/students";
+    }
+
+    @PostMapping("/student/deleteNo")
+    public String deleteNo(@ModelAttribute Student student){
+        System.out.println(student + "has NOT been deleted");
+        return "redirect:/students";
+    }
 
     // edit student method
 }

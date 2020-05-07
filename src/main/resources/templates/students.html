@@ -36,7 +36,7 @@
             <td>
                 <a th:href="@{/student(id=${student.id})}"><button class="btn btn-details">Details</button></a>
                 <a href="#"><button class="btn btn-ed">Edit</button></a>
-                <a href="/deleteStudent"><button class="btn btn-del">Delete</button></a></td>
+                <a th:href="@{/student/delete(id=${student.id})}"><button class="btn btn-del">Delete</button></a></td>
         </tr>
     </table>
 </div>

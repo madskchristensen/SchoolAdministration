@@ -103,10 +103,12 @@ public class StudentRepositoryImpl implements IStudentRepository {
             PreparedStatement ps = conn.prepareStatement("DELETE FROM students WHERE id=?");
             ps.setInt(1,idToDelete);
             ps.execute();
+            System.out.println("Student at ID " + idToDelete + " has been deleted");
+            return true;
         } catch (SQLException e) {
-            System.out.println("noget gik galt med delete");
             e.printStackTrace();
+            System.out.println("Something went wrong Student ID: " + idToDelete);
+            return false;
         }
-        return false;
     }
 }
