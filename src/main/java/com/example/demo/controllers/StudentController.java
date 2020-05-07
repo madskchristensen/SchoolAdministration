@@ -28,10 +28,10 @@ public class StudentController{
     //https://www.baeldung.com/spring-request-param
     //TODO Direct to detailed view of student
     @GetMapping("/student")
-    @ResponseBody
-    public String getStudentByParameter(@RequestParam int id) {
+    public String getStudentByParameter(@RequestParam int id, Model model) {
         Student student = studentRepository.read(id);
-        return student.toString();
+        model.addAttribute("student", student);
+        return "/student/detail";
     }
 
     @GetMapping("/courses")

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Student details</title>
+    <title>Student Details</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/../css/styles.css">
 </head>
 <body>
-<h1>Student Details</h1>
+<!-- TODO: MENU -->
+<!-- TODO: Table of students -->
+<div class="container" >
+    <nav>
+        <a href="/">KEA</a>
+        <a href="/students">Students</a>
+        <a href="/courses">Courses</a>
+    </nav>
+    <h1><strong>Details</strong></h1>
+
+    <p>ID: <span th:text="${student.getId()}">id </span></p>
+    <p>First Name: <span th:text="${student.getFirstName()}">firstName </span></p>
+    <p>Last Name: <span th:text="${student.getLastName()}">lastName</span></p>
+    <p>Enrollment Date: <span th:text="${student.getEnrollmentDate()}">enrollmentDate</span></p>
+    <p>CPR: <span th:text="${student.getCpr()}">cpr</span></p>
+
+    <a href="/students"><button class="btn btn-create">Back</button></a>
+
+</div>
 </body>
 </html>
