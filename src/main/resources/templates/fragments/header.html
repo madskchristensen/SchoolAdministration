@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragements="header">
     <meta charset="UTF-8">
-    <title>Student Courses</title>
+    <title>Student Administration</title>
     <!-- stylesheet -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
 <!-- TODO: MENU -->
 <!-- TODO: Table of students -->
-<div class="container">
-    <h1>Student Courses</h1>
-
-    <header th:insert="fragments/header.html :: header"> </header>
-
-    <p>courses go here</p>
-
+<div th:fragment="header" class="container">
+    <nav>
+        <a href="/">KEA</a>
+        <a href="/students">Students</a>
+        <a href="/courses">Courses</a>
+    </nav>
 </div>
 </body>
 </html>

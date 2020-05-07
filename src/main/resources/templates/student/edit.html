@@ -8,12 +8,9 @@
 </head>
 <body>
 <div class="container">
-    <h1>Create student</h1>
-    <nav>
-        <a href="/static">KEA</a>
-        <a href="/students">Students</a>
-        <a href="/courses">Courses</a>
-    </nav>
+    <h1>Edit student</h1>
+    <header th:insert="fragments/header.html :: header"> </header>
+
     <form action="/student/editDo" th:object="${student}" method="post">
         <label for="firstName">Fornavn</label> <input id="firstName" name="firstName" th:value="*{getFirstName()}" type="text"/>
         <label for="lastName">Efternavn</label> <input id="lastName" name="lastName" th:value="*{getLastName()}" type="text"/>

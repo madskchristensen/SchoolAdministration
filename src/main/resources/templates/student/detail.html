@@ -10,11 +10,8 @@
 <!-- TODO: MENU -->
 <!-- TODO: Table of students -->
 <div class="container" >
-    <nav>
-        <a href="/">KEA</a>
-        <a href="/students">Students</a>
-        <a href="/courses">Courses</a>
-    </nav>
+    <header th:insert="fragments/header.html :: header"> </header>
+
     <h1><strong>Details</strong></h1>
 
     <label for="id">Fornavn</label> <input id="id" name="id" th:value="${student.getId()}" type="text" readonly/>
