@@ -12,11 +12,8 @@
 <div class="container">
     <h1>Student administration</h1>
 
-    <nav>
-        <a href="/">KEA</a>
-        <a href="/students">Students</a>
-        <a href="/courses">Courses</a>
-    </nav>
+    <header th:insert="fragments/header.html :: header"> </header>
+
     <a href="/student/create"><button class="btn btn-create">Create</button></a>
     <table>
         <tr>
