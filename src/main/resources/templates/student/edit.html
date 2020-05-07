@@ -15,11 +15,11 @@
         <a href="/courses">Courses</a>
     </nav>
     <form action="/student/editDo" th:object="${student}" method="post">
-        <label for="firstName">Fornavn</label> <input id="firstName" name="firstName" th:value="${student.getFirstName()}" type="text"/>
-        <label for="lastName">Efternavn</label> <input id="lastName" name="lastName" th:value="${student.getLastName()}" type="text"/>
-        <label for="enrollmentDate">Indskrivelsesdato</label> <input id="enrollmentDate" name="enrollmentDate" th:value="${student.getEnrollmentDate()}" type="text"/>
-        <label for="cpr">CPR</label> <input id="cpr" name="cpr" th:value="${student.getCpr()}" type="text"/>
-       <input type="hidden" id="id" name="id" th:value="${student.getId()}"/>
+        <label for="firstName">Fornavn</label> <input id="firstName" name="firstName" th:value="*{getFirstName()}" type="text"/>
+        <label for="lastName">Efternavn</label> <input id="lastName" name="lastName" th:value="*{getLastName()}" type="text"/>
+        <label for="enrollmentDate">Indskrivelsesdato</label> <input id="enrollmentDate" name="enrollmentDate" th:value="*{getEnrollmentDate()}" type="text"/>
+        <label for="cpr">CPR</label> <input id="cpr" name="cpr" th:value="*{getCpr()}" type="text"/>
+        <input type="hidden" id="id" name="id" th:value="${student.getId()}"/>
         <input name="submit" type="submit" value="Gem" class="btn btn-create">
     </form>
 </div>

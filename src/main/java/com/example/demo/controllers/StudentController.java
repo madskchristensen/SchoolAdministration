@@ -62,7 +62,6 @@ public class StudentController{
     @GetMapping("/student/edit")
     public String studentEditShow(@RequestParam int id, Model model) {
         model.addAttribute("student", studentRepository.read(id));
-        System.out.println(studentRepository.read(id));
 
         return "/student/edit";
     }
@@ -70,7 +69,6 @@ public class StudentController{
     @PostMapping("/student/editDo")
     public String studentEdit(@ModelAttribute Student student) {
         studentRepository.update(student);
-        System.out.println(student);
 
         return "redirect:/students";
     }
