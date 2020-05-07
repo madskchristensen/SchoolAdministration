@@ -83,14 +83,13 @@ public class StudentController{
 
     @PostMapping("/student/deleteDo")
     public String deleteDo(@ModelAttribute Student student){
-        System.out.println(student + "has been deleted");
         studentRepository.delete(student.getId());
         return "redirect:/students";
     }
 
     @PostMapping("/student/deleteNo")
     public String deleteNo(@ModelAttribute Student student){
-        System.out.println(student + "has NOT been deleted");
+
         return "redirect:/students";
     }
 

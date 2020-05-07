@@ -7,14 +7,11 @@
     <link rel="stylesheet" type="text/css" href="/../css/styles.css">
 </head>
 <body>
-<!-- TODO: MENU -->
-<!-- TODO: Table of students -->
 <div class="container" >
+    <h1>Student Details</h1>
     <header th:insert="fragments/header.html :: header"> </header>
 
-    <h1><strong>Details</strong></h1>
-
-    <label for="id">Fornavn</label> <input id="id" name="id" th:value="${student.getId()}" type="text" readonly/>
+    <label for="id">ID</label> <input id="id" name="id" th:value="${student.getId()}" type="text" readonly/>
     <label for="firstName">Fornavn</label> <input id="firstName" name="firstName" th:value="${student.getFirstName()}" type="text" readonly/>
     <label for="lastName">Efternavn</label> <input id="lastName" name="lastName" th:value="${student.getLastName()}" type="text" readonly/>
     <label for="enrollmentDate">Indskrivelsesdato</label> <input id="enrollmentDate" name="enrollmentDate" th:value="${student.getEnrollmentDate()}" type="text" readonly/>
