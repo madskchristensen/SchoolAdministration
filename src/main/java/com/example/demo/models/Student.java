@@ -2,7 +2,6 @@ package com.example.demo.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Student{

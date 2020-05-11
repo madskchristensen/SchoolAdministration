@@ -67,7 +67,7 @@ public class StudentController{
     }
 
     @PostMapping("/student/editDo")
-    public String studentEdit(@ModelAttribute Student student) {
+    public String studentEdit(@RequestParam int id, @ModelAttribute Student student) {
         studentRepository.update(student);
 
         return "redirect:/students";
